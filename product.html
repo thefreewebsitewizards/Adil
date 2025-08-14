@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Name - Copstealzz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-black border-b border-gray-800 sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="index.html" class="text-2xl font-bold">
+                    <span class="text-green-400">COP</span><span class="text-white">STEALZZ</span>
+                </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link text-white hover:text-green-400 transition">Home</a>
+                <a href="sneakers.html" class="nav-link text-white hover:text-green-400 transition">Sneakers</a>
+                <a href="streetwear.html" class="nav-link text-white hover:text-green-400 transition">Streetwear</a>
+                <a href="accessories.html" class="nav-link text-white hover:text-green-400 transition">Accessories</a>
+                <a href="running.html" class="nav-link text-white hover:text-green-400 transition">Running</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <button id="user-icon" class="text-white hover:text-green-400 transition">
+                        <i class="fas fa-user text-xl"></i>
+                    </button>
+                </div>
+                <div class="relative">
+                    <button id="cart-toggle" class="text-white hover:text-green-400 transition">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="cart-count absolute bg-green-400 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center" id="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="bg-gray-900 py-4">
+        <div class="container mx-auto px-4">
+            <nav class="text-sm text-gray-400">
+                <a href="index.html" class="hover:text-green-400">Home</a>
+                <span class="mx-2">/</span>
+                <a href="sneakers.html" class="hover:text-green-400">Sneakers</a>
+                <span class="mx-2">/</span>
+                <span class="text-white">Nike Air Jordan 1 Retro High</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Product Details -->
+    <section class="py-12 bg-black">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Product Images -->
+                <div class="space-y-4">
+                    <!-- Main Image -->
+                    <div class="relative overflow-hidden rounded-lg bg-gray-900 image-zoom-container">
+                        <img id="main-product-image" 
+                             src="images/product-main.jpg" 
+                             alt="Nike Air Jordan 1 Retro High" 
+                             class="w-full h-96 object-cover image-zoom transition duration-500">
+                        <div class="absolute top-4 right-4 sale-tag text-xs font-bold px-3 py-1 rounded">
+                            SALE
+                        </div>
+                    </div>
+                    
+                    <!-- Thumbnail Images -->
+                    <div class="grid grid-cols-4 gap-2">
+                        <img src="images/product-thumb-1.jpg" 
+                             alt="View 1" 
+                             class="thumbnail-image w-full h-20 object-cover rounded cursor-pointer border-2 border-green-400">
+                        <img src="images/product-thumb-2.jpg" 
+                             alt="View 2" 
+                             class="thumbnail-image w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-green-400">
+                        <img src="images/product-thumb-3.jpg" 
+                             alt="View 3" 
+                             class="thumbnail-image w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-green-400">
+                        <img src="images/product-thumb-4.jpg" 
+                             alt="View 4" 
+                             class="thumbnail-image w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-green-400">
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="space-y-6">
+                    <div>
+                        <h1 class="heading-primary text-3xl md:text-4xl mb-2">Nike Air Jordan 1 Retro High</h1>
+                        <p class="text-gray-400 text-lg">Nike</p>
+                    </div>
+
+                    <!-- Price -->
+                    <div class="flex items-center space-x-4">
+                        <span class="text-3xl font-bold text-green-400">$450</span>
+                        <span class="text-xl text-gray-500 line-through">$500</span>
+                        <span class="bg-red-600 text-white text-sm font-bold px-2 py-1 rounded">10% OFF</span>
+                    </div>
+
+                    <!-- Stock Status -->
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-green-400"></i>
+                        <span class="text-green-400 font-semibold">15+ in stock</span>
+                    </div>
+
+                    <!-- Size Selector -->
+                    <div>
+                        <h3 class="font-bold mb-3">Size</h3>
+                        <div class="grid grid-cols-6 gap-2">
+                            <button class="size-option border border-gray-600 py-2 px-3 rounded text-center hover:border-green-400 transition" data-size="7">7</button>
+                            <button class="size-option border border-gray-600 py-2 px-3 rounded text-center hover:border-green-400 transition" data-size="8">8</button>
+                            <button class="size-option border border-gray-600 py-2 px-3 rounded text-center hover:border-green-400 transition" data-size="9">9</button>
+                            <button class="size-option border border-gray-600 py-2 px-3 rounded text-center hover:border-green-400 transition" data-size="10">10</button>
+                            <button class="size-option border border-gray-600 py-2 px-3 rounded text-center hover:border-green-400 transition" data-size="11">11</button>
+                            <button class="size-option border border-gray-600 py-2 px-3 rounded text-center hover:border-green-400 transition" data-size="12">12</button>
+                        </div>
+                    </div>
+
+                    <!-- Add to Cart -->
+                    <div class="space-y-4">
+                        <button class="add-to-cart-btn btn-primary text-black font-bold py-4 px-8 rounded-lg w-full text-lg" 
+                                data-id="1" data-name="Nike Air Jordan 1 Retro High" data-price="450" data-image="images/product-main.jpg">
+                            <i class="fas fa-shopping-cart mr-2"></i>
+                            Add to Cart
+                        </button>
+                        <button class="btn-secondary font-bold py-4 px-8 rounded-lg w-full text-lg">
+                            <i class="fas fa-heart mr-2"></i>
+                            Add to Wishlist
+                        </button>
+                    </div>
+
+                    <!-- Product Features -->
+                    <div class="border-t border-gray-800 pt-6">
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                            <div>
+                                <i class="fas fa-shield-alt text-green-400 text-2xl mb-2"></i>
+                                <p class="text-sm text-gray-400">Authenticity Guaranteed</p>
+                            </div>
+                            <div>
+                                <i class="fas fa-shipping-fast text-green-400 text-2xl mb-2"></i>
+                                <p class="text-sm text-gray-400">Fast Shipping</p>
+                            </div>
+                            <div>
+                                <i class="fas fa-undo text-green-400 text-2xl mb-2"></i>
+                                <p class="text-sm text-gray-400">Easy Returns</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Details Tabs -->
+    <section class="py-12 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <!-- Tab Navigation -->
+            <div class="flex border-b border-gray-700 mb-8">
+                <button class="tab-button active py-3 px-6 font-semibold" data-tab="description">
+                    Description
+                </button>
+                <button class="tab-button py-3 px-6 font-semibold" data-tab="details">
+                    Details
+                </button>
+                <button class="tab-button py-3 px-6 font-semibold" data-tab="reviews">
+                    Reviews
+                </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <div id="description" class="tab-pane active">
+                    <div class="prose prose-invert max-w-none">
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            The Air Jordan 1 Retro High brings back the classic silhouette that started it all. 
+                            This iconic sneaker features premium leather construction, original colorways, and the 
+                            timeless design that made Jordan Brand a household name.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            Whether you're hitting the court or the streets, the Air Jordan 1 delivers both 
+                            style and performance. The high-top design provides ankle support while the 
+                            classic rubber outsole ensures traction and durability.
+                        </p>
+                    </div>
+                </div>
+                <div id="details" class="tab-pane hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold mb-3">Product Details</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li><strong>Brand:</strong> Nike</li>
+                                <li><strong>Model:</strong> Air Jordan 1 Retro High</li>
+                                <li><strong>Colorway:</strong> Bred Toe</li>
+                                <li><strong>Release Year:</strong> 2018</li>
+                                <li><strong>Material:</strong> Leather</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-3">Sizing</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li><strong>Fit:</strong> True to size</li>
+                                <li><strong>Width:</strong> Medium</li>
+                                <li><strong>Available Sizes:</strong> 7-12</li>
+                                <li><strong>Size Guide:</strong> <a href="#" class="text-green-400 hover:underline">View Size Chart</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="reviews" class="tab-pane hidden">
+                    <div class="space-y-6">
+                        <!-- Review Summary -->
+                        <div class="flex items-center space-x-6 pb-6 border-b border-gray-700">
+                            <div class="text-center">
+                                <div class="text-4xl font-bold text-green-400">4.8</div>
+                                <div class="flex text-yellow-400 text-lg mb-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="text-gray-400 text-sm">Based on 127 reviews</div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="space-y-2">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-sm w-8">5★</span>
+                                        <div class="flex-1 bg-gray-700 rounded-full h-2">
+                                            <div class="bg-green-400 h-2 rounded-full" style="width: 85%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-400">108</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-sm w-8">4★</span>
+                                        <div class="flex-1 bg-gray-700 rounded-full h-2">
+                                            <div class="bg-green-400 h-2 rounded-full" style="width: 10%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-400">12</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-sm w-8">3★</span>
+                                        <div class="flex-1 bg-gray-700 rounded-full h-2">
+                                            <div class="bg-green-400 h-2 rounded-full" style="width: 3%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-400">4</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-sm w-8">2★</span>
+                                        <div class="flex-1 bg-gray-700 rounded-full h-2">
+                                            <div class="bg-green-400 h-2 rounded-full" style="width: 2%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-400">2</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-sm w-8">1★</span>
+                                        <div class="flex-1 bg-gray-700 rounded-full h-2">
+                                            <div class="bg-green-400 h-2 rounded-full" style="width: 1%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-400">1</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Individual Reviews -->
+                        <div class="space-y-6">
+                            <div class="border-b border-gray-800 pb-6">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 bg-green-400 rounded-full flex items-center justify-center text-black font-bold">
+                                        M
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <span class="font-semibold">Mike Johnson</span>
+                                            <div class="flex text-yellow-400 text-sm">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <span class="text-gray-400 text-sm">2 days ago</span>
+                                        </div>
+                                        <p class="text-gray-300 mb-2">Amazing quality and authentic! The leather feels premium and the colorway is exactly as shown. Shipping was fast and packaging was perfect.</p>
+                                        <div class="text-sm text-gray-400">Size purchased: 10 • Verified Purchase</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="border-b border-gray-800 pb-6">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center text-white font-bold">
+                                        S
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <span class="font-semibold">Sarah Chen</span>
+                                            <div class="flex text-yellow-400 text-sm">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <span class="text-gray-400 text-sm">1 week ago</span>
+                                        </div>
+                                        <p class="text-gray-300 mb-2">Love these! Fit perfectly and the quality is outstanding. Definitely recommend sizing true to size. Great addition to my collection.</p>
+                                        <div class="text-sm text-gray-400">Size purchased: 8 • Verified Purchase</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 bg-purple-400 rounded-full flex items-center justify-center text-white font-bold">
+                                        A
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <span class="font-semibold">Alex Rodriguez</span>
+                                            <div class="flex text-yellow-400 text-sm">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                            <span class="text-gray-400 text-sm">2 weeks ago</span>
+                                        </div>
+                                        <p class="text-gray-300 mb-2">Great sneakers overall. The only minor issue is that they took a bit longer to break in than expected, but once they did, they're super comfortable.</p>
+                                        <div class="text-sm text-gray-400">Size purchased: 11 • Verified Purchase</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="py-12 bg-black">
+        <div class="container mx-auto px-4">
+            <h2 class="heading-primary text-3xl mb-8">Related Products</h2>
+            <div class="related-products-grid">
+                <!-- Related Product 1 -->
+                <div class="product-card bg-gray-900 rounded-lg overflow-hidden transition duration-300">
+                    <div class="relative image-zoom">
+                        <img src="images/related-product-1.jpg" 
+                             alt="Related Product 1" class="transition duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold mb-1">Adidas Yeezy Boost 350</h3>
+                        <p class="text-gray-400 text-sm mb-2">Adidas</p>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="font-bold">$320</span>
+                            <span class="text-green-400 text-xs font-semibold">In Stock</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="view-details-btn flex-1 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-3 rounded transition duration-300" 
+                                    data-id="9" data-name="Adidas Yeezy Boost 350" data-price="320" data-image="images/related-product-1.jpg">
+                                <i class="fas fa-eye mr-1"></i>View Details
+                            </button>
+                            <button class="add-to-cart-btn flex-1 bg-green-400 hover:bg-green-500 text-black font-semibold py-2 px-3 rounded transition duration-300" 
+                                    data-id="9" data-name="Adidas Yeezy Boost 350" data-price="320" data-image="images/related-product-1.jpg">
+                                <i class="fas fa-shopping-cart mr-1"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Product 2 -->
+                <div class="product-card bg-gray-900 rounded-lg overflow-hidden transition duration-300">
+                    <div class="relative image-zoom">
+                        <img src="images/related-product-2.jpg" 
+                             alt="Related Product 2" class="transition duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold mb-1">Nike Dunk Low Retro</h3>
+                        <p class="text-gray-400 text-sm mb-2">Nike</p>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="font-bold">$220</span>
+                            <span class="text-green-400 text-xs font-semibold">In Stock</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="view-details-btn flex-1 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-3 rounded transition duration-300" 
+                                    data-id="10" data-name="Nike Dunk Low Retro" data-price="220" data-image="images/related-product-2.jpg">
+                                <i class="fas fa-eye mr-1"></i>View Details
+                            </button>
+                            <button class="add-to-cart-btn flex-1 bg-green-400 hover:bg-green-500 text-black font-semibold py-2 px-3 rounded transition duration-300" 
+                                    data-id="10" data-name="Nike Dunk Low Retro" data-price="220" data-image="images/related-product-2.jpg">
+                                <i class="fas fa-shopping-cart mr-1"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Product 3 -->
+                <div class="product-card bg-gray-900 rounded-lg overflow-hidden transition duration-300">
+                    <div class="relative image-zoom">
+                        <img src="images/related-product-3.jpg" 
+                             alt="Related Product 3" class="transition duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold mb-1">Jordan 4 Retro</h3>
+                        <p class="text-gray-400 text-sm mb-2">Jordan</p>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="font-bold">$380</span>
+                            <span class="text-red-400 text-xs font-semibold">Out of Stock</span>
+                        </div>
+                        <button class="add-to-cart-btn w-full bg-gray-600 text-gray-400 font-semibold py-2 px-4 rounded transition duration-300" 
+                                data-id="11" data-name="Jordan 4 Retro" data-price="380" data-image="images/related-product-3.jpg" disabled>
+                            <i class="fas fa-shopping-cart mr-2"></i>Out of Stock
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Related Product 4 -->
+                <div class="product-card bg-gray-900 rounded-lg overflow-hidden transition duration-300">
+                    <div class="relative image-zoom">
+                        <img src="images/related-product-4.jpg" 
+                             alt="Related Product 4" class="transition duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold mb-1">Nike Air Max 270</h3>
+                        <p class="text-gray-400 text-sm mb-2">Nike</p>
+                        <div class="flex justify-between items-center mb-3">
+                            <div class="flex items-center space-x-2">
+                                <span class="font-bold">$150</span>
+                                <span class="text-gray-500 line-through text-sm">$180</span>
+                            </div>
+                            <span class="text-green-400 text-xs font-semibold">Sale</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="view-details-btn flex-1 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-3 rounded transition duration-300" 
+                                    data-id="12" data-name="Nike Air Max 270" data-price="150" data-image="images/related-product-4.jpg">
+                                <i class="fas fa-eye mr-1"></i>View Details
+                            </button>
+                            <button class="add-to-cart-btn flex-1 bg-green-400 hover:bg-green-500 text-black font-semibold py-2 px-3 rounded transition duration-300" 
+                                    data-id="12" data-name="Nike Air Max 270" data-price="150" data-image="images/related-product-4.jpg">
+                                <i class="fas fa-shopping-cart mr-1"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal/Sidebar -->
+    <div id="cart-modal" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black bg-opacity-50" id="cart-backdrop"></div>
+        
+        <!-- Cart Sidebar -->
+        <div class="fixed top-0 right-0 h-full w-96 bg-gray-900 text-white transform translate-x-full transition-transform duration-300 ease-in-out z-50" id="cart-sidebar">
+        <!-- Cart Header -->
+        <div class="flex items-center justify-between p-4 border-b border-gray-700">
+            <h2 class="text-xl font-bold">Shopping Cart</h2>
+            <button id="close-cart" class="text-gray-400 hover:text-white">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Cart Items -->
+        <div id="cart-items" class="flex-1 overflow-y-auto p-4">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        
+        <!-- Cart Footer -->
+        <div class="border-t border-gray-700 p-4">
+            <!-- Shipping Options -->
+            <div class="space-y-2 mb-4">
+                <h4 class="font-semibold text-white text-sm">Shipping Options:</h4>
+                <label class="flex items-center cursor-pointer">
+                    <input type="radio" name="shipping" value="standard" checked class="mr-2">
+                    <span class="text-sm text-gray-300">Standard (Free)</span>
+                </label>
+                <label class="flex items-center cursor-pointer">
+                    <input type="radio" name="shipping" value="express" class="mr-2">
+                    <span class="text-sm text-gray-300">Express ($12.99)</span>
+                </label>
+                <label class="flex items-center cursor-pointer">
+                    <input type="radio" name="shipping" value="overnight" class="mr-2">
+                    <span class="text-sm text-gray-300">Overnight ($24.99)</span>
+                </label>
+            </div>
+            
+            <!-- Payment Method -->
+            <div class="space-y-2 mb-4">
+                <h4 class="font-semibold text-white text-sm">Payment Method:</h4>
+                <div class="grid grid-cols-2 gap-2">
+                    <label class="flex items-center cursor-pointer text-sm">
+                        <input type="radio" name="payment" value="card" checked class="mr-2">
+                        <span class="text-gray-300">Credit/Debit</span>
+                    </label>
+                    <label class="flex items-center cursor-pointer text-sm">
+                        <input type="radio" name="payment" value="paypal" class="mr-2">
+                        <span class="text-gray-300">PayPal</span>
+                    </label>
+                    <label class="flex items-center cursor-pointer text-sm">
+                        <input type="radio" name="payment" value="apple" class="mr-2">
+                        <span class="text-gray-300">Apple Pay</span>
+                    </label>
+                    <label class="flex items-center cursor-pointer text-sm">
+                        <input type="radio" name="payment" value="google" class="mr-2">
+                        <span class="text-gray-300">Google Pay</span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Price Breakdown -->
+            <div class="space-y-2 text-sm mb-4">
+                <div class="flex justify-between text-gray-300">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">$0.00</span>
+                </div>
+                <div class="flex justify-between text-gray-300">
+                    <span>Shipping:</span>
+                    <span id="cart-shipping">$0.00</span>
+                </div>
+                <div class="flex justify-between text-gray-300">
+                    <span>Tax:</span>
+                    <span id="cart-tax">$0.00</span>
+                </div>
+                <div class="flex justify-between font-bold text-lg border-t border-gray-700 pt-2">
+                    <span>Total:</span>
+                    <span id="cart-total" class="text-green-400">$0.00</span>
+                </div>
+            </div>
+            
+            <button id="proceed-checkout" class="w-full bg-green-400 hover:bg-green-500 text-black font-bold py-3 px-4 rounded-lg transition duration-300 mb-2">
+                Proceed to Checkout
+            </button>
+            <button id="clear-cart" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                Clear Cart
+            </button>
+        </div>
+    </div>
+    </div>
+
+
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-4 right-4 bg-green-400 text-black px-6 py-3 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50 hidden">
+        <div class="flex items-center">
+            <i class="fas fa-check-circle mr-2"></i>
+            <span id="toast-message">Item added to cart!</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-4">
+                <span class="text-green-400 text-2xl font-bold">COP</span><span class="text-white text-2xl font-bold">STEALZZ</span>
+            </div>
+            <p class="text-gray-400">© 2023 Copstealzz. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Size Selection Modal -->
+    <div id="size-modal" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black bg-opacity-75" id="size-modal-backdrop"></div>
+        
+        <!-- Modal Content -->
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="bg-gray-900 rounded-lg max-w-md w-full p-6">
+                <!-- Header -->
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-bold text-white">Select Size & Quantity</h3>
+                    <button id="close-size-modal" class="text-gray-400 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Product Info -->
+                <div class="flex items-center space-x-4 mb-6">
+                    <img id="size-modal-image" src="" alt="" class="w-20 h-20 object-cover rounded-lg">
+                    <div>
+                        <h4 id="size-modal-title" class="text-white font-semibold text-lg"></h4>
+                        <p id="size-modal-price" class="text-green-400 font-bold"></p>
+                    </div>
+                </div>
+                
+                <!-- Size Selection -->
+                <div class="mb-6">
+                    <label class="block text-white font-semibold mb-3">Size</label>
+                    <div class="grid grid-cols-4 gap-2">
+                        <button class="size-option border-2 border-gray-600 text-white py-2 px-3 rounded hover:border-green-400 hover:text-green-400 transition-colors">7</button>
+                        <button class="size-option border-2 border-gray-600 text-white py-2 px-3 rounded hover:border-green-400 hover:text-green-400 transition-colors">8</button>
+                        <button class="size-option border-2 border-gray-600 text-white py-2 px-3 rounded hover:border-green-400 hover:text-green-400 transition-colors">9</button>
+                        <button class="size-option border-2 border-gray-600 text-white py-2 px-3 rounded hover:border-green-400 hover:text-green-400 transition-colors">10</button>
+                        <button class="size-option border-2 border-gray-600 text-white py-2 px-3 rounded hover:border-green-400 hover:text-green-400 transition-colors">11</button>
+                        <button class="size-option border-2 border-gray-600 text-white py-2 px-3 rounded hover:border-green-400 hover:text-green-400 transition-colors">12</button>
+                        <button class="size-option border-2 border-gray-600 text-white py-2 px-3 rounded hover:border-green-400 hover:text-green-400 transition-colors">13</button>
+                        <button class="size-option border-2 border-gray-600 text-white py-2 px-3 rounded hover:border-green-400 hover:text-green-400 transition-colors">14</button>
+                    </div>
+                </div>
+                
+                <!-- Quantity Selection -->
+                <div class="mb-6">
+                    <label class="block text-white font-semibold mb-3">Quantity</label>
+                    <div class="flex items-center space-x-3">
+                        <button id="decrease-quantity" class="bg-gray-700 hover:bg-gray-600 text-white w-10 h-10 rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
+                            </svg>
+                        </button>
+                        <span id="quantity-display" class="text-white font-semibold text-lg w-8 text-center">1</span>
+                        <button id="increase-quantity" class="bg-gray-700 hover:bg-gray-600 text-white w-10 h-10 rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="flex space-x-3">
+                    <button id="close-size-modal-btn" class="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors">
+                        Cancel
+                    </button>
+                    <button id="confirm-add-to-cart" class="flex-1 bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors opacity-50 cursor-not-allowed" disabled>
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black bg-opacity-75" id="success-backdrop"></div>
+        
+        <!-- Modal Content -->
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="bg-gray-900 rounded-lg max-w-md w-full p-6 text-center">
+                <!-- Success Icon -->
+                <div class="mb-4">
+                    <i class="fas fa-check-circle text-green-400 text-5xl"></i>
+                </div>
+                
+                <!-- Success Message -->
+                <h3 class="text-xl font-bold text-white mb-2">Successfully Added!</h3>
+                <p class="text-gray-400 mb-4">Item has been added to your cart</p>
+                
+                <!-- Product Details -->
+                <div class="bg-gray-800 rounded-lg p-4 mb-6">
+                    <div class="flex items-center space-x-4">
+                        <img id="success-modal-image" src="" alt="" class="w-16 h-16 object-cover rounded-lg">
+                        <div class="text-left flex-1">
+                            <h4 id="success-modal-title" class="text-white font-semibold mb-1"></h4>
+                            <p class="text-gray-400 text-sm">Size: <span id="success-modal-size"></span></p>
+                            <p class="text-gray-400 text-sm">Qty: <span id="success-modal-qty"></span></p>
+                            <p id="success-modal-price" class="text-green-400 font-semibold"></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="flex space-x-3">
+                    <button id="continue-shopping" class="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded transition">
+                        Continue Shopping
+                    </button>
+                    <button id="view-cart" class="flex-1 bg-green-400 hover:bg-green-500 text-black font-semibold py-2 px-4 rounded transition">
+                        View Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-300">
+        <!-- Backdrop -->
+        <div id="image-backdrop" class="absolute inset-0 bg-black bg-opacity-90"></div>
+        
+        <!-- Modal Content -->
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="relative">
+                <!-- Close Button -->
+                <button id="close-image-modal" class="absolute top-4 right-4 text-white hover:text-green-400 z-10">
+                    <i class="fas fa-times"></i>
+                </button>
+                
+                <!-- Modal Image -->
+                <img id="modal-image" src="" alt="" class="max-w-full max-h-[80vh] transform scale-90 transition-transform duration-300">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize shopping cart
+            const cart = new ShoppingCart();
+            // Product page specific JavaScript
+            // Thumbnail image switching
+            document.querySelectorAll('.thumbnail-image').forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    const mainImage = document.getElementById('main-product-image');
+                    mainImage.src = this.src.replace('w=200', 'w=800');
+                    
+                    // Update active thumbnail
+                    document.querySelectorAll('.thumbnail-image').forEach(t => {
+                        t.classList.remove('border-green-400');
+                        t.classList.add('border-transparent');
+                    });
+                    this.classList.add('border-green-400');
+                    this.classList.remove('border-transparent');
+                });
+            });
+            
+            // Image zoom on hover
+            const imageZoomContainer = document.querySelector('.image-zoom-container');
+            if (imageZoomContainer) {
+                const zoomImage = imageZoomContainer.querySelector('img');
+                
+                imageZoomContainer.addEventListener('mouseenter', function() {
+                    zoomImage.style.transform = 'scale(1.5)';
+                });
+                
+                imageZoomContainer.addEventListener('mouseleave', function() {
+                    zoomImage.style.transform = 'scale(1)';
+                });
+                
+                imageZoomContainer.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = ((e.clientX - rect.left) / rect.width) * 100;
+                    const y = ((e.clientY - rect.top) / rect.height) * 100;
+                    zoomImage.style.transformOrigin = `${x}% ${y}%`;
+                });
+            }
+        });
+    </script>
+
+    <!-- Sign-In Modal -->
+    <div id="signin-modal" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black bg-opacity-75" id="signin-backdrop"></div>
+        
+        <!-- Modal Content -->
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="bg-gray-900 rounded-lg max-w-md w-full p-6 max-h-[90vh] overflow-y-auto">
+                <!-- Header -->
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-xl font-bold text-white">Sign In Required</h3>
+                    <button id="close-signin-modal" class="text-gray-400 hover:text-white">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <!-- Message -->
+                <div class="mb-6 text-center">
+                    <div class="mb-4">
+                        <i class="fas fa-user-lock text-green-400 text-4xl"></i>
+                    </div>
+                    <p class="text-gray-300 mb-4">You need to sign in to proceed with checkout.</p>
+                    <p class="text-gray-400 text-sm">Create an account or sign in to continue your purchase.</p>
+                </div>
+                
+                <!-- Sign In Form -->
+                <form id="signin-form" class="space-y-4">
+                    <div>
+                        <label class="block text-white font-semibold mb-2">Email</label>
+                        <input type="email" id="signin-email" required 
+                               class="w-full bg-gray-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+                               placeholder="Enter your email">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-white font-semibold mb-2">Password</label>
+                        <input type="password" id="signin-password" required 
+                               class="w-full bg-gray-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+                               placeholder="Enter your password">
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center cursor-pointer">
+                            <input type="checkbox" class="mr-2">
+                            <span class="text-gray-400 text-sm">Remember me</span>
+                        </label>
+                        <a href="#" class="text-green-400 text-sm hover:underline">Forgot password?</a>
+                    </div>
+                </form>
+                
+                <!-- Action Buttons -->
+                <div class="space-y-3 mt-6">
+                    <button id="signin-submit" class="w-full bg-green-400 hover:bg-green-500 text-black font-semibold py-3 px-4 rounded transition">
+                        <i class="fas fa-sign-in-alt mr-2"></i>Sign In
+                    </button>
+                    
+                    <div class="text-center">
+                        <span class="text-gray-400 text-sm">Don't have an account? </span>
+                        <button id="show-signup" class="text-green-400 text-sm hover:underline">Sign Up</button>
+                    </div>
+                    
+                    <div class="flex items-center my-4">
+                        <div class="flex-1 border-t border-gray-600"></div>
+                        <span class="px-4 text-gray-400 text-sm">or</span>
+                        <div class="flex-1 border-t border-gray-600"></div>
+                    </div>
+                    
+                    <button class="w-full bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-4 rounded transition">
+                        <i class="fab fa-google mr-2"></i>Continue with Google
+                    </button>
+                    
+                    <button class="w-full bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-4 rounded transition">
+                        <i class="fab fa-facebook mr-2"></i>Continue with Facebook
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

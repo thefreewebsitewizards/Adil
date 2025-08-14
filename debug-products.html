@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Products Count</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #1a1a1a; color: white; }
+        .debug-section { margin: 20px 0; padding: 15px; border: 1px solid #333; border-radius: 5px; }
+        .product-list { max-height: 300px; overflow-y: auto; }
+        .product-item { padding: 5px; border-bottom: 1px solid #333; }
+    </style>
+</head>
+<body>
+    <h1>Debug: Products Count Issue</h1>
+    
+    <div class="debug-section">
+        <h2>Collection Data Analysis</h2>
+        <div id="collection-info"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>Filtered Products</h2>
+        <div id="filtered-info"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>DOM Analysis</h2>
+        <div id="dom-info"></div>
+    </div>
+    
+    <script src="collection.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Collection analysis
+            const collectionInfo = document.getElementById('collection-info');
+            const totalSneakers = products.sneakers.length;
+            
+            collectionInfo.innerHTML = `
+                <p><strong>Total sneakers in collection.js:</strong> ${totalSneakers}</p>
+                <div class="product-list">
+                    ${products.sneakers.map((sneaker, index) => 
+                        `<div class="product-item">${index + 1}. ID: ${sneaker.id} - ${sneaker.name} (${sneaker.brand})</div>`
+                    ).join('')}
+                </div>
+            `;
+            
+            // Simulate filtering like on sneakers page
+            const filteredInfo = document.getElementById('filtered-info');
+            const sneakersOnly = products.sneakers.filter(p => p.category === 'sneakers');
+            
+            filteredInfo.innerHTML = `
+                <p><strong>Filtered sneakers count:</strong> ${sneakersOnly.length}</p>
+                <div class="product-list">
+                    ${sneakersOnly.map((sneaker, index) => 
+                        `<div class="product-item">${index + 1}. ID: ${sneaker.id} - ${sneaker.name} (${sneaker.brand})</div>`
+                    ).join('')}
+                </div>
+            `;
+            
+            // DOM analysis - simulate what happens on sneakers page
+            const domInfo = document.getElementById('dom-info');
+            
+            // Create a test grid to see rendering
+            const testGrid = document.createElement('div');
+            testGrid.style.display = 'grid';
+            testGrid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(280px, 1fr))';
+            testGrid.style.gap = '1.5rem';
+            
+            // Simulate product card creation
+            let renderedCount = 0;
+            sneakersOnly.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.style.border = '1px solid #333';
+                card.style.padding = '10px';
+                card.style.borderRadius = '5px';
+                card.innerHTML = `
+                    <h4>${product.name}</h4>
+                    <p>ID: ${product.id} | Brand: ${product.brand}</p>
+                    <p>Price: $${product.price}</p>
+                `;
+                testGrid.appendChild(card);
+                renderedCount++;
+            });
+            
+            domInfo.innerHTML = `
+                <p><strong>Products that should render:</strong> ${sneakersOnly.length}</p>
+                <p><strong>Products actually rendered:</strong> ${renderedCount}</p>
+                <h3>Test Grid (simulated rendering):</h3>
+            `;
+            domInfo.appendChild(testGrid);
+            
+            // Check for potential issues
+            const issues = [];
+            
+            // Check for missing images
+            const missingImages = sneakersOnly.filter(p => !p.image || p.image === '');
+            if (missingImages.length > 0) {
+                issues.push(`Missing images: ${missingImages.length} products`);
+            }
+            
+            // Check for duplicate IDs
+            const ids = sneakersOnly.map(p => p.id);
+            const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
+            if (duplicateIds.length > 0) {
+                issues.push(`Duplicate IDs found: ${duplicateIds.join(', ')}`);
+            }
+            
+            // Check for invalid data
+            const invalidProducts = sneakersOnly.filter(p => !p.name || !p.brand || !p.price);
+            if (invalidProducts.length > 0) {
+                issues.push(`Invalid product data: ${invalidProducts.length} products`);
+            }
+            
+            if (issues.length > 0) {
+                const issuesDiv = document.createElement('div');
+                issuesDiv.innerHTML = `
+                    <h3 style="color: #ff6b6b;">Potential Issues Found:</h3>
+                    <ul>
+                        ${issues.map(issue => `<li>${issue}</li>`).join('')}
+                    </ul>
+                `;
+                domInfo.appendChild(issuesDiv);
+            } else {
+                const noIssuesDiv = document.createElement('div');
+                noIssuesDiv.innerHTML = '<p style="color: #51cf66;">No obvious data issues found.</p>';
+                domInfo.appendChild(noIssuesDiv);
+            }
+        });
+    </script>
+</body>
+</html>
